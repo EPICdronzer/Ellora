@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ellora</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap" rel="stylesheet">
     <style>
     @media (max-width: 1920px){
         body{
             margin: 0px;
             width: 100%;
             padding: 0%;
-            
+            background: linear-gradient(to bottom,#1A2B44,#455D82);
         }
         .header{
             width: 100%;
             height: 734px;
-            background: linear-gradient(to bottom,#1A2B44,#455D82);
         }
         #bg_pic{
             width: 100%;
-            height: 100%;
+            height: 5200px;
             z-index: 1;
+            opacity:90%;
+            filter: brightness(40%);
         }
         #navbar{
             position: absolute;
@@ -42,6 +44,7 @@
             align-items: center;
             background-color: rgba(69, 93, 130, 0.2);
             gap: 332px;
+            backdrop-filter: blur(10px);
         }
         #hyper_collection{
             display: flex;
@@ -54,7 +57,8 @@
             height: auto;
             color: white;
             font-size: 16px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 400;
         }
         #work{
             border: 3px solid white;
@@ -65,8 +69,8 @@
             align-items: center;
             color: white;
             border-radius: 16px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+            font-family: 'Satoshi', sans-serif;
+      
         }
         #star_pic{
             position: absolute;
@@ -83,7 +87,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 200px;
+            gap: 150px;
             z-index: 1;
         }
         #left_side_main_content{
@@ -95,18 +99,18 @@
             flex-wrap: wrap;
         }
         #main_heading{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Satoshi', sans-serif;
             font-size: 48px;
-            font-weight: 600;
+            font-weight: 700;
             color: white;
         }
         #you_span{
             color: #47E747;
         }
         #sub_heading{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Satoshi', sans-serif;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 400;
             color: white;
             padding-top: 32px;
             padding-bottom: 32px;
@@ -119,7 +123,7 @@
             width: 668px;
             height: 72px;
             border-radius: 16px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Satoshi', sans-serif;
             font-size: 16px;
             font-weight: 600;
             background-color: #47E747;
@@ -134,14 +138,368 @@
             width: 48px;
             height: 48px;
         }
+        #circle_dot{
+            position: absolute;
+            top: 200px;
+            display: flex;
+            justify-content:center ;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            gap: 450px;
+        }
         #circle{
             border-radius: 100%;
             width: 492px;
             height: 492px;
             background-color: rgba(69, 93, 130, 0.2);
-            position: absolute;
-            top: 200px;
-            left: 170px;
+            backdrop-filter: blur(10px);
+            
+        }
+        #dot_pic{
+            backdrop-filter: blur(10px);
+        }
+        #ellora_white_bg{
+            width: 56px;
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #ellora_pic{
+            filter: brightness(100%);
+            width: 56px;
+            height: 56px;
+        }
+        #main{
+             display: flex; 
+            justify-content: center;
+            align-items: center; 
+            position:absolute;
+            top: 800px;
+            width: 100%;
+            height: 4120px;
+            flex-wrap: wrap;
+
+        }
+        .about_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #about_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #about_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .about_info_content{
+            backdrop-filter: blur(10px);
+            width: 544px;
+            height: 364px;
+            z-index: 1;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+        }
+        .work_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #work_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #work_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .work_info_content{
+            backdrop-filter: blur(10px);
+            width: 544px;
+            height: 364px;
+            z-index: 1;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+        }
+        .service_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #service_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #service_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .service_info_content{
+            backdrop-filter: blur(10px);
+            width: 544px;
+            height: 364px;
+            z-index: 1;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+        }
+        .testimonial_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #testimonial_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #testimonial_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .testimonial_info_content{
+            backdrop-filter: blur(10px);
+            width: 834px;
+            height: 254px;
+            z-index: 1;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+        }
+        .contact_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #contact_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #contact_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 703px;
+            flex-wrap: wrap;
+        }
+        #input_name{
+            width: 342px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+            margin-right: 8px;
+        }
+        #input_email{
+            width: 342px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+        }
+        #company_name{
+            margin-top: 16px;
+            width: 703px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+        }
+        #service{
+            margin-top: 16px;
+            width: 703px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+        }
+        #project{
+            margin-top: 16px;
+            width: 703px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+        }
+        #submit_button{
+            margin-top: 16px;
+            width: 703px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(71, 231, 71, 1);
+            border: 1px solid rgba(71, 231, 71, 1)e;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:black;
+        }
+        .question_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #question_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #question_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .questions{
+            backdrop-filter: blur(10px);
+            width: 1120px;
+            height: 78px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            margin-bottom: 16px;
+            border: 1px solid white;
+        }
+        #footer{
+            background-color: rgba(0, 0, 0, 0.65);
+            width: 100%;
+            height: 256px;
+            z-index: 10;
+            position:absolute;
+            top: 4948px;
+        }#upper_footer{
+            width: 100%;
+            height: 192px;
+        }
+        #lower_footer{
+            width: 100%;
+            height: 64px;
+            border-top: 1px solid rgba(253, 253, 253, 0.2);
         }
     }
         /* @media (max-width: 1024px) {
@@ -160,19 +518,22 @@
     {% load static %}
     
     <header class="header">
-        <!-- <img id="bg_pic" src="{% static 'ellora_app/images/bg4.png' %}"> -->
+        <img id="bg_pic" src="{% static 'ellora_app/images/bg5.png' %}">
         <navbar id="navbar">
             <div id="nav">
-                <img id="ellora_pic" src="{% static 'ellora_app/images/ellora_pic.png' %}">
+                <div id="ellora_white_bg">
+                    <img id="ellora_pic" src="{% static 'ellora_app/images/ellora_pic2.png' %}">
+                </div>
+                
                 <div id="hyper_collection">
                     <div class="nav_hyper">
-                        ABOUT
+                        About
                     </div>
                     <div class="nav_hyper">
-                        SERVICES
+                        Services
                     </div>
                     <div class="nav_hyper">
-                        TESTIMONIALS
+                        Testimonials
                     </div>
                     <div class="nav_hyper">
                         FAQs
@@ -194,8 +555,137 @@
             </div>
             <img id="person_pic" src="{% static 'ellora_app/images/person.png' %}">
         </div>
-        <div id="circle"></div>
+        <div id="circle_dot">
+            <div id="circle"></div>
+            <img id="dot_pic" src="{% static 'ellora_app/images/dot_spots.png' %}">
+        </div>
         <img id="star2_pic" src="{% static 'ellora_app/images/star.png' %}">
     </header>
+    <main id="main">
+        <div class="about_section">
+            <div id="about_heading">
+                About
+            </div>
+            <div id="about_info">
+                <div class="about_info_content">
+
+                </div>
+                <div class="about_info_content">
+
+                </div>
+                <div class="about_info_content">
+
+                </div>
+                <div class="about_info_content">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="work_section">
+            <div id="work_heading">
+                Work
+            </div>
+            <div id="work_info">
+                <div class="work_info_content">
+
+                </div>
+                <div class="work_info_content">
+
+                </div>
+                <div class="work_info_content">
+
+                </div>
+                <div class="work_info_content">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="service_section">
+            <div id="service_heading">
+                Services
+            </div>
+            <div id="service_info">
+                <div class="service_info_content">
+
+                </div>
+                <div class="service_info_content">
+
+                </div>
+                <div class="service_info_content">
+
+                </div>
+                <div class="service_info_content">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial_section">
+            <div id="testimonial_heading">
+                Testimonials
+            </div>
+            <div id="testimonial_info">
+                <img id="arrow_left_pic" src="{% static 'ellora_app/images/arrow_left.png' %}">
+                <div class="testimonial_info_content">
+
+                </div>
+                <img id="arrow_right_pic" src="{% static 'ellora_app/images/arrow_right.png' %}">
+            </div>
+        </div>
+
+        <div class="contact_section">
+            <div id="contact_heading">
+                Contact
+            </div>
+            <div id="contact_info">
+                <form action="" method="post">
+                <input id="input_name" type="text" name="name" placeholder="Name" required>
+                <input id="input_email" type="text" name="email" placeholder="Email" required>
+                <input id="company_name" type="text" name="company" placeholder="Company Name" required>
+                <select name="service" id="service" required>
+                    <option value="" disabled selected>-- Please Select --</option>
+                    <option value="service_1">United States</option>
+                    <option value="service_2">Canada</option>
+                    <option value="service_3">United Kingdom</option>
+                    <option value="service_4">Australia</option>
+                    <option value="service_5">India</option>
+                  </select>
+                <input id="project" type="text" name="project" placeholder="Describe Project" required>
+                <input id="submit_button" type="submit" name="submit">
+                </form>
+            </div>
+        </div>
+
+        <div class="question_section">
+            <div id="question_heading">
+                Frequently Asked Question
+            </div>
+            <div id="question_info">
+                <div class="questions">
+
+                </div>
+                <div class="questions">
+
+                </div>
+                <div class="questions">
+
+                </div>
+                <div class="questions">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div id="upper_footer">
+
+        </div>
+
+        <div id="lower_footer">
+
+        </div>
+    </footer>
 </body>
 </html>
