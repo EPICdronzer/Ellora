@@ -94,13 +94,13 @@
             display: flex;
             justify-content: center;
             align-items:start;
-            max-width: 556px;
+            max-width: 600px;
             height: auto;
             flex-wrap: wrap;
         }
         #main_heading{
             font-family: 'Satoshi', sans-serif;
-            font-size: 48px;
+            font-size: 64px;
             font-weight: 700;
             color: white;
         }
@@ -109,7 +109,7 @@
         }
         #sub_heading{
             font-family: 'Satoshi', sans-serif;
-            font-size: 16px;
+            font-size: 24px;
             font-weight: 400;
             color: white;
             padding-top: 32px;
@@ -124,8 +124,9 @@
             height: 72px;
             border-radius: 16px;
             font-family: 'Satoshi', sans-serif;
-            font-size: 16px;
+            font-size: 24px;
             font-weight: 600;
+            color: rgba(51, 51, 51, 1);
             background-color: #47E747;
         }
         #person_pic{
@@ -484,6 +485,17 @@
             background-color: rgba(69, 93, 130, 0.2);
             margin-bottom: 16px;
             border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 600px;
+        }
+        .ques_content{
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            width: 428px;
+            height: auto;
         }
         #footer{
             background-color: rgba(0, 0, 0, 0.65);
@@ -492,14 +504,74 @@
             z-index: 10;
             position:absolute;
             top: 4948px;
+            
         }#upper_footer{
             width: 100%;
             height: 192px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 250px;
+        }
+        #upper_footer_left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 550px;
+        }
+        #upper_footer_ellora_pic{
+            width: 128px;
+            height: 128px;
+        }
+        #upper_footer_quote{
+            font-family: 'Satoshi', sans-serif;
+            font-size: 24px;
+            width: 260px;
+            color: white;
+        }
+        #upper_footer_right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 450px;
+            flex-wrap: wrap;
+        }
+        #upper_links{
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            color: white;
+        }
+        #upper_icons{
+            padding-top: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        .icons{
+            width: 50px;
+            height: 50px;
         }
         #lower_footer{
             width: 100%;
             height: 64px;
             border-top: 1px solid rgba(253, 253, 253, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #lower_footer_content{
+            width: auto;
+            height: auto;
+            font-size: 16;
+            font-weight: 400;
+            font-family: 'Satoshi', sans-serif;
+            color:white;
         }
     }
         /* @media (max-width: 1024px) {
@@ -547,7 +619,7 @@
         <img id="star_pic" src="{% static 'ellora_app/images/star.png' %}">
         <div id="main_content">
             <div id="left_side_main_content">
-                <div id="main_heading">CRAFTING SOLUTIONS THAT WORK FOR <span id="you_span">YOU.</span></div>
+                <div id="main_heading">Crafting Solutions That Work For <span id="you_span">You.</span></div>
                 <div id="sub_heading">We’re your one-stop agency for UX/UI design, website development, graphic design, and content creation.</div>
                 <div id="button_req">
                     <div>Request Quote</div><img id="message_pic" src="{% static 'ellora_app/images/message.png' %}">
@@ -664,27 +736,63 @@
             </div>
             <div id="question_info">
                 <div class="questions">
-
+                    <div class="ques_content">
+                        How do I get started with Ellora Agency?
+                    </div>
+                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
                 </div>
                 <div class="questions">
-
+                    <div class="ques_content">
+                        Can you accommodate tight deadlines?
+                    </div>
+                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
                 </div>
                 <div class="questions">
-
+                    <div class="ques_content">
+                        What payment methods do you accept?
+                    </div>
+                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
                 </div>
                 <div class="questions">
-
+                    <div class="ques_content">
+                        What is your pricing structure?
+                    </div>
+                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
                 </div>
             </div>
         </div>
     </main>
     <footer id="footer">
         <div id="upper_footer">
-
+            <div id="upper_footer_left">
+                <img id="upper_footer_ellora_pic" src="{% static 'ellora_app/images/ellora_pic3.png' %}">
+                <div id="upper_footer_quote">The Future of Digital, Built Today.</div>
+            </div>
+            <div id="upper_footer_right">
+                <div id="upper_links">
+                    <div class="upper_links_content">
+                        Terms of Service
+                    </div>
+                    <div class="upper_links_content">
+                        Privacy Policy
+                    </div>
+                    <div class="upper_links_content">
+                        ellora.work@gmail.com
+                    </div>
+                </div>
+                <div id="upper_icons">
+                    <img class="icons" src="{% static 'ellora_app/images/instagram.png' %}">
+                    <img class="icons" src="{% static 'ellora_app/images/facebook.png' %}">
+                    <img class="icons"  src="{% static 'ellora_app/images/twitter.png' %}">
+                    <img class="icons"  src="{% static 'ellora_app/images/linkedin.png' %}">
+                </div>
+            </div>
         </div>
 
         <div id="lower_footer">
-
+            <div id="lower_footer_content">
+                © 2025 Ellora Co. All rights reserved.
+            </div>
         </div>
     </footer>
 </body>
