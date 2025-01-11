@@ -222,6 +222,36 @@
             z-index: 1;
             border-radius: 16px;
             background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+        .about_width{
+            width: 100%;
+            max-height: 300px;
+            max-width: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 32px;
+        }
+        .about_info_content_title{
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 600;
+            font-size:  32px;
+            color: white;
+            height: auto;
+        }
+        .about_info_content_data{
+            font-family: 'Satoshi', sans-serif;
+            font-size:  24px;
+            color: white;
+            opacity: 70%;
+            height: 300px;
+        }
+        .about_info_content_padding{
+            padding-top: 24px;
         }
         .work_section{
             width: 100%;
@@ -257,11 +287,58 @@
         }
         .work_info_content{
             backdrop-filter: blur(10px);
-            width: 544px;
+            width: 410px;
             height: 364px;
-            z-index: 1;
             border-radius: 16px;
             background-color: rgba(69, 93, 130, 0.2);
+            color: white;
+            font-size: 24px;
+            font-family: 'Satoshi', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        .work_width{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 370px;
+            height: auto;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .work_info_content_image{
+            width: 370px;
+            height: 200px;
+        }
+        .work_info_content_data{
+            font-size: 16px;
+            width: 516px;
+        }
+        #work_box_row{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .work_box{
+            border: 1px solid white;
+            border-radius: 16px;
+            font-size: 14px;
+            padding: 8px;
+        }
+        .about_info_content_header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+        .bold_work{
+            font-weight: 600;
         }
         .service_section{
             width: 100%;
@@ -299,9 +376,39 @@
             backdrop-filter: blur(10px);
             width: 544px;
             height: 364px;
-            z-index: 1;
+            /* padding: 14px; */
             border-radius: 16px;
             background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .service_info_content_title{
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 24px;
+            width: 400px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service_info_content_image{
+            width: 400px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service_width{
+            width: 100%;
+            max-width: 263px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         .testimonial_section{
             width: 100%;
@@ -318,8 +425,6 @@
             font-weight: 500;
             font-size:32px;
             color: white;
-            justify-content: center;
-            align-items: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -337,11 +442,52 @@
         }
         .testimonial_info_content{
             backdrop-filter: blur(10px);
-            width: 834px;
-            height: 254px;
+            width: 642px;
+            height: 296px;
             z-index: 1;
             border-radius: 16px;
             background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .testimonial_info_content_upper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 610px;
+            height: 120px;
+            gap: 16px;
+        }
+        #pi_pic{
+            width: 120px;
+            height: 120px;
+        }
+        #testimonial_info_content_upper_center{
+            width: 254px;
+            height: 84px;
+            color: white;
+            font-size: 24px;
+            font-family: 'Satoshi', sans-serif;
+        }
+        #testimonial_name{
+            padding-bottom: 8px;
+        }
+        #testimonial_position{
+            opacity: 70%;
+        }
+        .testimonial_info_content_lower{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 610px;
+            height: 120px;
+        }
+        #testimonial_lower_info{
+            color: white;
+            font-size: 24px;
+            font-family: 'Satoshi', sans-serif;
         }
         .contact_section{
             width: 100%;
@@ -640,36 +786,155 @@
             </div>
             <div id="about_info">
                 <div class="about_info_content">
-
+                    <div class="about_width">
+                        <div class="about_info_content_header">
+                            <img class="about_info_content_image" src="{% static 'ellora_app/images/group.png' %}">
+                            <div class="about_info_content_title">
+                                Who We Are
+                            </div>
+                        </div>
+                        <div class="about_info_content_data about_info_content_padding">
+                            At Ellora Co., we are a creative agency driven by passion and purpose. Our mission is to craft creative solutions and compelling content that elevate brands and resonate with audiences.
+                        </div>
+                    </div>
                 </div>
                 <div class="about_info_content">
-
+                    <div class="about_width">
+                        <div class="about_info_content_header">
+                            <img class="about_info_content_image" src="{% static 'ellora_app/images/setting.png' %}">
+                            <div class="about_info_content_title">
+                                What We Do
+                            </div>
+                        </div>
+                        <div class="about_info_content_data about_info_content_padding">
+                            Specializing in UX/UI Design, Website Development, Video Editing, and Copywriting, we transform ideas into impactful digital experiences. Whether you're a startup looking to establish your presence or a business seeking to refresh your brand.                        
+                        </div>
+                    </div>
                 </div>
                 <div class="about_info_content">
-
+                    <div class="about_width">
+                        <div class="about_info_content_header">
+                            <img class="about_info_content_image" src="{% static 'ellora_app/images/trophy.png' %}">
+                            <div class="about_info_content_title">
+                                Why Choose Us?
+                            </div>
+                        </div>
+                        <div class="about_info_content_data">
+                            <ul>
+                                <li>Affordable Excellence: High-quality deliverables that suit your budget.</li>
+                                <li>Seamless Collaboration: A personalized approach to ensure your vision comes to life.</li>
+                                <li>Proven Impact: A growing portfolio of successful projects and happy clients.</li>     
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="about_info_content">
-
+                    <div class="about_width">
+                        <div class="about_info_content_header">
+                            <img class="about_info_content_image" src="{% static 'ellora_app/images/shield.png' %}">
+                            <div class="about_info_content_title">
+                                Our Promise
+                            </div>
+                        </div>
+                        <div class="about_info_content_data about_info_content_padding">
+                            At Ellora Co., your success is our priority. Let us help you make a lasting impression in a digital-first world.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="work_section">
             <div id="work_heading">
                 Work
             </div>
             <div id="work_info">
                 <div class="work_info_content">
-
+                    <div class="work_width">
+                            <img class="work_info_content_image" src="{% static 'ellora_app/images/eshop.png' %}">
+                            <div>
+                                E-Shop Redesign and UX Research
+                            </div>
+                            <div class="work_info_content_data">
+                                Boosted online sales by <span class="bold_work">45%</span> within three months through an intuitive UI/UX redesign.
+                            </div>
+                            <div id="work_box_row">
+                                <div class="work_box">
+                                    UI/UX
+                                </div>
+                                <div class="work_box">
+                                    Redesign
+                                </div>
+                                <div class="work_box">
+                                    Research
+                                </div>
+                            </div>
+                    </div>
                 </div>
                 <div class="work_info_content">
-
+                    <div class="work_width">
+                        <img class="work_info_content_image" src="{% static 'ellora_app/images/startup.png' %}">
+                        <div>
+                            Tech Startup Brand Identity Launch
+                        </div>
+                        <div class="work_info_content_data">
+                            Created a memorable brand presence, leading to a <span class="bold_work">60%</span> increase in investor interest.
+                        </div>
+                        <div id="work_box_row">
+                            <div class="work_box">
+                                Website Dev
+                            </div>
+                            <div class="work_box">
+                                UI/UX
+                            </div>
+                            <div class="work_box">
+                                Research
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="work_info_content">
-
+                    <div class="work_width">
+                        <img class="work_info_content_image" src="{% static 'ellora_app/images/edtech.png' %}">
+                        <div>
+                            Website for an Ed-Tech Company
+                        </div>
+                        <div class="work_info_content_data">
+                            Improved user engagement by <span class="bold_work">35%</span> and reduced bounce rate by 50%.
+                        </div>
+                        <div id="work_box_row">
+                            <div class="work_box">
+                                UI/UX
+                            </div>
+                            <div class="work_box">
+                                Website Dev
+                            </div>
+                            <div class="work_box">
+                                Deployment
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="work_info_content">
-
+                    <div class="work_width">
+                        <img class="work_info_content_image" src="{% static 'ellora_app/images/social.png' %}">
+                        <div>
+                            Social Campaign Design for a NPO
+                        </div>
+                        <div class="work_info_content_data">
+                            Helped raise <span class="bold_work">$20,000</span> in donations within the first month of the campaign.
+                        </div>
+                        <div id="work_box_row">
+                            <div class="work_box">
+                                UI/UX
+                            </div>
+                            <div class="work_box">
+                                Redesign
+                            </div>
+                            <div class="work_box">
+                                Research
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -680,16 +945,44 @@
             </div>
             <div id="service_info">
                 <div class="service_info_content">
-
+                    <div class="service_width">
+                        <div class="service_info_content_image">
+                            <img id="pen" src="{% static 'ellora_app/images/pen.png' %}">
+                        </div>
+                        <div class="service_info_content_title">
+                            Copywriting
+                        </div>
+                    </div>
                 </div>
                 <div class="service_info_content">
-
+                    <div class="service_width">
+                        <div class="service_info_content_image">
+                            <img id="figma" src="{% static 'ellora_app/images/figma.png' %}">
+                        </div>
+                        <div class="service_info_content_title">
+                            UI/UX Design
+                        </div>
+                    </div>
                 </div>
                 <div class="service_info_content">
-
+                    <div class="service_width">
+                        <div class="service_info_content_image">
+                            <img id="film" src="{% static 'ellora_app/images/film.png' %}">
+                        </div>
+                        <div class="service_info_content_title">
+                            Video Editing
+                        </div>
+                    </div>
                 </div>
                 <div class="service_info_content">
-
+                    <div class="service_width">
+                        <div class="service_info_content_image">
+                            <img id="internet" src="{% static 'ellora_app/images/internet.png' %}">
+                        </div>
+                        <div class="service_info_content_title">
+                            Website Development
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -701,7 +994,23 @@
             <div id="testimonial_info">
                 <img id="arrow_left_pic" src="{% static 'ellora_app/images/arrow_left.png' %}">
                 <div class="testimonial_info_content">
-
+                    <div class="testimonial_info_content_upper">
+                        <img id="pi_pic" src="{% static 'ellora_app/images/personal_image.png' %}">
+                        <div id="testimonial_info_content_upper_center">
+                            <div id="testimonial_name">
+                                Ravi Verma,
+                            </div>
+                            <div id="testimonial_position">
+                                Owner, Spice Delight
+                            </div>
+                        </div>
+                        <img id="green_stars" src="{% static 'ellora_app/images/green_stars.png' %}">
+                    </div>
+                    <div class="testimonial_info_content_lower">
+                        <div id="testimonial_lower_info">
+                            The Ellora team brought our vision to life! Their creativity and attention to detail in UI/UX design exceeded all expectations. Highly recommend them for anyone looking to elevate their brand.
+                        </div>
+                    </div>
                 </div>
                 <img id="arrow_right_pic" src="{% static 'ellora_app/images/arrow_right.png' %}">
             </div>
