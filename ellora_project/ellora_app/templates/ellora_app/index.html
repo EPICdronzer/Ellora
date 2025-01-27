@@ -2,94 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ellora</title>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="static/ellora_app/images/ellora_pic3.png">
     <style>
-    @media (max-width: 1920px){
-        body{
-            margin: 0px;
-            width: 100%;
-            padding: 0%;
-            background: linear-gradient(to bottom,#1A2B44,#455D82);
+    @media screen and (min-width:1024px) and (max-width: 1920px){
+
+        #arrow_right_pic,#arrow_left_pic {
+            cursor: pointer; 
         }
-        .header{
+        .div{
             width: 100%;
-            height: 734px;
+            height: 50px;
         }
-        #bg_pic{
-            width: 100%;
-            height: 5200px;
-            z-index: 1;
-            opacity:90%;
-            filter: brightness(40%);
-        }
-        #navbar{
-            position: absolute;
-            top: 17px;
-            width: 100%;
-            height: auto;
+        .wrapper {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            z-index: 1000;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        #nav{
-            width: 1248px;
-            height: 96px;
-            border-radius: 20px;
+        html{
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(static/ellora_app/images/bg7.png);
+            cursor: url('my_custom_cursor.png'), auto;
+        }
+        .header {
+        width: 100vw; 
+        height: 80vh; 
+        }
+        #navbar {
+            position: fixed; 
+            top: 1.7vh; 
+            width: 100%; 
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(69, 93, 130, 0.2);
-            gap: 332px;
-            backdrop-filter: blur(10px);
+            justify-content: center; 
+            align-items: center; 
+            z-index: 1000; 
         }
-        #hyper_collection{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
+
+        #nav {
+            width: 90%;
+            max-width: 1248px; 
+            height: 12vh; 
+            border-radius: 2vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: rgba(69, 93, 130, 0.2); 
+            gap: 25%; 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
         }
-        .nav_hyper{
-            width: auto;
-            height: auto;
-            color: white;
-            font-size: 16px;
-            font-family: 'Satoshi', sans-serif;
-            font-weight: 400;
+
+        #hyper_collection {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 2vw;
         }
+
+        .nav_hyper {
+            width: auto; 
+            height: auto; 
+            color: white; 
+            font-size: 2.5vh; 
+            font-family: 'Satoshi', sans-serif; 
+            font-weight: 400; 
+        }
+
+        .nav_hyper_anchor {
+            text-decoration: none; 
+            color: white; 
+            transition: color 0.3s ease; 
+        }
+
+        .nav_hyper_anchor:hover {
+            color: #47E747; 
+        }
+
         #work{
             border: 3px solid white;
-            width: 100px;
-            height: 52px;
+            width: 8vw;
+            height: 8vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             border-radius: 16px;
             font-family: 'Satoshi', sans-serif;
-      
         }
+
         #star_pic{
             position: absolute;
-            top: 132px;
-            left: 782px;
-            width: 82px;
-            height: 82px;
+            top: 19vh;
+            left: 60vw;
+            width: 8.5vw;
+            height: 8.5vw;
         }
         #main_content{
             position: absolute;
-            top: 164px;
+            top: 22.8vh;
             width: 100%;
-            height: 525px;
+            height: 65.6vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 150px;
+            gap: 8vw;
             z-index: 1;
         }
+
         #left_side_main_content{
             display: flex;
             justify-content: center;
@@ -128,6 +155,11 @@
             font-weight: 600;
             color: rgba(51, 51, 51, 1);
             background-color: #47E747;
+            text-decoration: none;
+        }
+        #button_req:hover{
+            color: #47E747;
+            background-color: rgba(51, 51, 51, 1);
         }
         #person_pic{
             height: 500px;
@@ -135,7 +167,7 @@
         #star2_pic{
             position: absolute;
             top: 584px;
-            left: 764px;
+            left: 844px;
             width: 48px;
             height: 48px;
         }
@@ -149,13 +181,35 @@
             height: auto;
             gap: 450px;
         }
-        #circle{
-            border-radius: 100%;
-            width: 492px;
-            height: 492px;
+        #circle {
+            width: 30vw;
+            height: 30vw;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             background-color: rgba(69, 93, 130, 0.2);
             backdrop-filter: blur(10px);
-            
+            animation: morph 10s infinite ease-in-out;
+        }
+        @keyframes morph {
+            0% {
+                transform: translate(10px, 10px) scale(1);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            25% {
+                transform: translate(-10px, 5px) scale(1.05);
+                border-radius: 50% 50% 30% 70% / 70% 40% 60% 30%;
+            }
+            50% {
+                transform: translate(5px, -10px) scale(1.1);
+                border-radius: 70% 30% 50% 50% / 50% 60% 40% 70%;
+            }
+            75% {
+                transform: translate(-5px, -5px) scale(1.05);
+                border-radius: 40% 60% 60% 40% / 40% 70% 30% 60%;
+            }
+            100% {
+                transform: translate(10px, 10px) scale(1);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
         }
         #dot_pic{
             backdrop-filter: blur(10px);
@@ -173,7 +227,7 @@
             height: 56px;
         }
         #main{
-             display: flex; 
+            display: flex; 
             justify-content: center;
             align-items: center; 
             position:absolute;
@@ -181,7 +235,6 @@
             width: 100%;
             height: 4120px;
             flex-wrap: wrap;
-
         }
         .about_section{
             width: 100%;
@@ -218,18 +271,21 @@
         .about_info_content{
             backdrop-filter: blur(10px);
             width: 544px;
-            height: 364px;
+            height: 300px;
             z-index: 1;
             border-radius: 16px;
             background-color: rgba(69, 93, 130, 0.2);
             display: flex;
             justify-content: center;
-            /* align-items: center; */
+            transition: all 500ms ease-in-out;
+        }
+        .about_info_content:hover{
+            border-radius: 50% 50% 49% 51% / 50% 50% 50% 50% ;
         }
         .about_width{
             width: 100%;
-            max-height: 300px;
-            max-width: 480px;
+            max-height: 200px;
+            max-width: 350px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -245,7 +301,7 @@
         }
         .about_info_content_data{
             font-family: 'Satoshi', sans-serif;
-            font-size:  24px;
+            font-size:  16px;
             color: white;
             opacity: 70%;
             height: 300px;
@@ -297,7 +353,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 16px;
+            padding: 16px 0px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .work_info_content:hover {
+            transform: translateY(-20px); 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
         }
         .work_width{
             width: 100%;
@@ -330,6 +391,9 @@
             border-radius: 16px;
             font-size: 14px;
             padding: 8px;
+        }
+        .work_box:hover{
+            color: #47E747;
         }
         .about_info_content_header{
             display: flex;
@@ -376,13 +440,16 @@
             backdrop-filter: blur(10px);
             width: 544px;
             height: 364px;
-            /* padding: 14px; */
             border-radius: 16px;
             background-color: rgba(69, 93, 130, 0.2);
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            transition: all 500ms ease-in-out;
+        }
+        .service_info_content:hover{
+            border-radius: 50% 50% 49% 51% / 50% 50% 50% 50% ;
         }
         .service_info_content_title{
             color: white;
@@ -452,6 +519,15 @@
             align-items: center;
             flex-wrap: wrap;
         }
+        #testimonial_width{
+            width: 100%;
+            max-width: 610px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
         .testimonial_info_content_upper{
             display: flex;
             justify-content: center;
@@ -459,6 +535,7 @@
             width: 610px;
             height: 120px;
             gap: 16px;
+            padding-bottom: 8px;
         }
         #pi_pic{
             width: 120px;
@@ -531,7 +608,12 @@
             font-family: 'Satoshi', sans-serif;
             font-size: 16px;
             color:white;
-            margin-right: 8px;
+            margin-right: 15px;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #input_name::placeholder{
+            color: white;
         }
         #input_email{
             width: 342px;
@@ -543,10 +625,15 @@
             font-family: 'Satoshi', sans-serif;
             font-size: 16px;
             color:white;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #input_email::placeholder{
+            color: white;
         }
         #company_name{
             margin-top: 16px;
-            width: 703px;
+            width: 704px;
             height: 64px;
             text-indent: 16px;
             border-radius: 16px;
@@ -555,10 +642,16 @@
             font-family: 'Satoshi', sans-serif;
             font-size: 16px;
             color:white;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #company_name::placeholder{
+            color: white;
         }
         #service{
+            backdrop-filter: blur(10px);
             margin-top: 16px;
-            width: 703px;
+            width: 704px;
             height: 64px;
             text-indent: 16px;
             border-radius: 16px;
@@ -567,6 +660,20 @@
             font-family: 'Satoshi', sans-serif;
             font-size: 16px;
             color:white;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10"><path d="M0 3l5 5 5-5H0z" fill="%23ffffff"/></svg>'); 
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+        }
+        #service option {
+            background-color: white;
+            color: black;
+        }
+        #services:hover {
+            border-color: #888;
+        }
+        #service::placeholder{
+            color: white;
         }
         #project{
             margin-top: 16px;
@@ -579,20 +686,118 @@
             font-family: 'Satoshi', sans-serif;
             font-size: 16px;
             color:white;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #project::placeholder{
+            color: white;
         }
         #submit_button{
             margin-top: 16px;
             width: 703px;
             height: 64px;
-            text-indent: 16px;
             border-radius: 16px;
             background-color: rgba(71, 231, 71, 1);
-            border: 1px solid rgba(71, 231, 71, 1)e;
+            border: 1px solid rgba(71, 231, 71, 1);
             font-family: 'Satoshi', sans-serif;
             font-size: 16px;
+            font-weight: 500;
             color:black;
         }
-        .question_section{
+        .question_section {
+            width: 100%;
+            max-width: 1120px;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #question_heading {
+            font-weight: 500;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 32px;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+        }
+
+        #question_info {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1120px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .faq_item {
+            width: 100%;
+            border: 1px solid white;
+            border-radius: 16px;
+            overflow: hidden; 
+            transition: all 0.3s ease-in-out;
+        }
+
+        .questions {
+            backdrop-filter: blur(10px);
+            width: 100%;
+            height: 78px;
+            background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 600px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .questions:hover {
+            background-color: rgba(69, 93, 130, 0.3);
+        }
+
+        .ques_content {
+            width: 428px;
+            font-size: 16px;
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+        }
+
+        .arrow_down_pic {
+            width: 32px;
+            height: 24px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .questions.active .arrow_down_pic {
+            transform: rotate(180deg);
+        }
+
+        .answer {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            padding: 16px 32px;
+            display: none;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:16px;
+            transition: all 0.3s ease-in-out;
+            box-sizing: border-box; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+        }
+
+        .faq_item.expanded .answer {
+            display: block;
+        }
+        /*.question_section{
             width: 100%;
             height: auto;
             display: flex;
@@ -607,11 +812,6 @@
             font-weight: 500;
             font-size:32px;
             color: white;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding-bottom: 32px;
         }
         #question_info{
@@ -643,8 +843,62 @@
             width: 428px;
             height: auto;
         }
+        .popup-overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1000; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-box {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        .popup-box h2 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .popup-box p {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close-btn:hover {
+            background-color: #0056b3;
+        }
+        .arrow_down_pic {
+            width: 30px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }*/
         #footer{
             background-color: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(10px);
             width: 100%;
             height: 256px;
             z-index: 10;
@@ -719,66 +973,1042 @@
             font-family: 'Satoshi', sans-serif;
             color:white;
         }
+        #menu{
+            display: none;
+        }
     }
-        /* @media (max-width: 1024px) {
-            body{
-                background-color: aqua;
+    @media screen and (min-width: 440px) and (max-width: 1024px) {
+        #arrow_right_pic,#arrow_left_pic {
+            cursor: pointer;
+        }
+        .div{
+            width: 100%;
+            height: 50px;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            margin: 0px;
+            width: 100%;
+            padding: 0%;
+            background-image: url(static/ellora_app/images/bg7.png);
+            height: auto;
+            backdrop-filter: blur(50%);
+        }
+        .header{
+            width: 100%;
+            height: 600px;
+        }
+        #navbar{
+            position: absolute;
+            top: 17px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1000;
+        }
+        #nav{
+            width: 90%;
+            max-width: 1248px;
+            height: 96px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(69, 93, 130, 0.2);
+            gap: 15%;
+            backdrop-filter: blur(10px);
+        }
+        #hyper_collection{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav_hyper{
+            width: auto;
+            height: auto;
+            color: white;
+            font-size: 16px;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 400;
+        }
+        .nav_hyper_anchor{
+            text-decoration: none;
+            color: white;
+        }
+        .nav_hyper_anchor:hover {
+            color: #47E747; 
+        }
+        #work{
+            border: 3px solid white;
+            width: 134px;
+            height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 16px;
+            font-family: 'Satoshi', sans-serif;
+      
+        }
+        #star_pic{
+            position: absolute;
+            top: 132px;
+            left: 482px;
+            width: 82px;
+            height: 82px;
+        }
+        #main_content{
+            flex: 1;
+            position: absolute;
+            top: 164px;
+            width: 100%;
+            height: 525px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            z-index: 1;
+        }
+        #left_side_main_content{
+            display: flex;
+            justify-content: flex-start;
+            align-items:start;
+            max-width: 450px;
+            height: auto;
+            flex-wrap: wrap;
+        }
+        #main_heading{
+            font-family: 'Satoshi', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            width: 300px;
+        }
+        #you_span{
+            color: #47E747;
+        }
+        #sub_heading{
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: white;
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+        #button_req{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            width: 468px;
+            height: 64px;
+            border-radius: 16px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(51, 51, 51, 1);
+            background-color: #47E747;
+            text-decoration: none;
+        }
+        #button_req:hover{
+            background-color: rgba(51, 51, 51, 1);
+            color: #47E747;
+        }
+        #person_pic{
+            height: 400px;
+        }
+        #star2_pic{
+            position: absolute;
+            top: 584px;
+            left: 500px;
+            width: 48px;
+            height: 48px;
+        }
+        #circle_dot{
+            position: absolute;
+            top: 200px;
+            display: flex;
+            justify-content:center ;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            gap: 200px;
+        }
+        #circle{
+            border-radius: 100%;
+            width: 382px;
+            height: 382px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background-color: rgba(69, 93, 130, 0.2);
+            backdrop-filter: blur(10px);
+            animation: morph 10s infinite ease-in-out;
+        }
+        @keyframes morph {
+            0% {
+                transform: translate(10px, 10px) scale(1);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            25% {
+                transform: translate(-10px, 5px) scale(1.05);
+                border-radius: 50% 50% 30% 70% / 70% 40% 60% 30%;
+            }
+            50% {
+                transform: translate(5px, -10px) scale(1.1);
+                border-radius: 70% 30% 50% 50% / 50% 60% 40% 70%;
+            }
+            75% {
+                transform: translate(-5px, -5px) scale(1.05);
+                border-radius: 40% 60% 60% 40% / 40% 70% 30% 60%;
+            }
+            100% {
+                transform: translate(10px, 10px) scale(1);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             }
         }
-        @media (max-width: 440px) {
-            body{
-                background-color: black;
-            }
-        } */
+        #dot_pic{
+            backdrop-filter: blur(10px);
+        }
+        #ellora_white_bg{
+            width: 56px;
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #ellora_pic{
+            filter: brightness(100%);
+            width: 56px;
+            height: 56px;
+        }
+        #main{
+            display: flex; 
+            justify-content: center;
+            align-items: center; 
+            position:absolute;
+            top: 800px;
+            width: 100%;
+            height: 4120px;
+            flex-wrap: wrap;
+
+        }
+        .about_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #about_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #about_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .about_info_content{
+            backdrop-filter: blur(10px);
+            width: 410px;
+            height: 300px;
+            z-index: 1;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            transition: all 500ms ease-in-out;
+        }
+        .about_info_content:hover{
+            border-radius: 50% 50% 49% 51% / 50% 50% 50% 50% ;
+        }
+        .about_width{
+            width: 100%;
+            max-height: 200px;
+            max-width: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 32px;
+        }
+        .about_info_content_title{
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 600;
+            font-size:  32px;
+            color: white;
+            height: auto;
+        }
+        .about_info_content_data{
+            font-family: 'Satoshi', sans-serif;
+            font-size:  16px;
+            color: white;
+            opacity: 70%;
+            height: 300px;
+        }
+        .about_info_content_padding{
+            padding-top: 24px;
+        }
+        .work_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #work_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #work_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .work_info_content{
+            backdrop-filter: blur(10px);
+            width: 410px;
+            height: 364px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            color: white;
+            font-size: 24px;
+            font-family: 'Satoshi', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 0px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .work_width{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 370px;
+            height: auto;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .work_info_content:hover {
+            transform: translateY(-20px); 
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+        }
+        .work_info_content_image{
+            width: 370px;
+            height: 200px;
+        }
+        .work_info_content_data{
+            font-size: 16px;
+            width: 516px;
+        }
+        #work_box_row{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .work_box{
+            border: 1px solid white;
+            border-radius: 16px;
+            font-size: 14px;
+            padding: 8px;
+        }
+        .work_box:hover{
+            color: #47E747;
+        }
+        .about_info_content_header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+        .bold_work{
+            font-weight: 600;
+        }
+        .service_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #service_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #service_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .service_info_content{
+            backdrop-filter: blur(10px);
+            width: 410px;
+            height: 364px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: all 500ms ease-in-out;
+        }
+        .service_info_content:hover{
+            border-radius: 50% 50% 49% 51% / 50% 50% 50% 50% ;
+        }
+        .service_info_content_title{
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 24px;
+            width: 400px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service_info_content_image{
+            width: 400px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .service_width{
+            width: 100%;
+            max-width: 263px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .testimonial_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #testimonial_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #testimonial_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .testimonial_info_content{
+            backdrop-filter: blur(10px);
+            width: 642px;
+            height: 296px;
+            z-index: 1;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #testimonial_width{
+            width: 100%;
+            max-width: 610px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .testimonial_info_content_upper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 610px;
+            height: 120px;
+            gap: 16px;
+            padding-bottom: 8px;
+        }
+        #pi_pic{
+            width: 120px;
+            height: 120px;
+        }
+        #testimonial_info_content_upper_center{
+            width: 254px;
+            height: 84px;
+            color: white;
+            font-size: 24px;
+            font-family: 'Satoshi', sans-serif;
+        }
+        #testimonial_name{
+            padding-bottom: 8px;
+        }
+        #testimonial_position{
+            opacity: 70%;
+        }
+        .testimonial_info_content_lower{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 610px;
+            height: 120px;
+        }
+        #testimonial_lower_info{
+            color: white;
+            font-size: 24px;
+            font-family: 'Satoshi', sans-serif;
+        }
+        .contact_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #contact_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #contact_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 703px;
+            flex-wrap: wrap;
+        }
+        #input_name{
+            width: 342px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+            margin-right: 15px;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #input_name::placeholder{
+            color: white;
+        }
+        #input_email{
+            width: 342px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #input_email::placeholder{
+            color: white;
+        }
+        #company_name{
+            margin-top: 16px;
+            width: 704px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #company_name::placeholder{
+            color: white;
+        }
+        #service{
+            backdrop-filter: blur(10px);
+            margin-top: 16px;
+            width: 704px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="10" height="10"><path d="M0 3l5 5 5-5H0z" fill="%23ffffff"/></svg>'); 
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+        }
+        #service option {
+            background-color: white;
+            color: black;
+        }
+        #services:hover {
+            border-color: #888;
+        }
+        #service::placeholder{
+            color: white;
+        }
+        #project{
+            margin-top: 16px;
+            width: 703px;
+            height: 64px;
+            text-indent: 16px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            border: 1px solid white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            color:white;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+        #project::placeholder{
+            color: white;
+        }
+        #submit_button{
+            margin-top: 16px;
+            width: 703px;
+            height: 64px;
+            border-radius: 16px ;
+            background-color: rgba(71, 231, 71, 1);
+            border: 1px solid rgba(71, 231, 71, 1);
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color:black;
+        }
+        .question_section {
+            width: 100%;
+            max-width: 1120px;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #question_heading {
+            font-weight: 500;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 32px;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+        }
+
+        #question_info {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1120px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .faq_item {
+            width: 100%;
+            border: 1px solid white;
+            border-radius: 16px;
+            overflow: hidden; 
+            transition: all 0.3s ease-in-out;
+        }
+
+        .questions {
+            backdrop-filter: blur(10px);
+            width: 100%;
+            height: 78px;
+            background-color: rgba(69, 93, 130, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45%;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .questions:hover {
+            background-color: rgba(69, 93, 130, 0.3);
+        }
+
+        .ques_content {
+            width: 428px;
+            font-size: 16px;
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+        }
+
+        .arrow_down_pic {
+            width: 32px;
+            height: 24px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .questions.active .arrow_down_pic {
+            transform: rotate(180deg);
+        }
+
+        .answer {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            padding: 16px 32px;
+            display: none;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:16px;
+            transition: all 0.3s ease-in-out;
+            box-sizing: border-box; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+}
+
+        .faq_item.expanded .answer {
+            display: block;
+        }
+        /*.question_section{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #question_heading{
+            width: 100%;
+            height: auto;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size:32px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 32px;
+        }
+        #question_info{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1120px;
+            flex-wrap: wrap;
+        }
+        .questions{
+            backdrop-filter: blur(10px);
+            width: 684px;
+            height: 64px;
+            border-radius: 16px;
+            background-color: rgba(69, 93, 130, 0.2);
+            margin-bottom: 16px;
+            border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45%;
+        }
+        .ques_content{
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            width: 300px;
+            height: auto;
+        }
+        .popup-overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1000; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-box {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        .popup-box h2 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .popup-box p {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .close-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close-btn:hover {
+            background-color: #0056b3;
+        }
+        .arrow_down_pic {
+            width: 30px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }*/
+           .upper_links_content a {
+            text-decoration: none; /* Remove the underline */
+            color: inherit;        /* Inherit the color from parent */
+            cursor: pointer;      /* Change cursor to indicate it's clickable */
+        }
+    
+        .upper_links_content a:hover {
+          color: #0056b3;   /* Example: darker color on hover */
+        }
+
+        #footer{
+            background-color: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            height: 256px;
+            z-index: 10;
+            position:absolute;
+            top: 4948px;
+            
+        }#upper_footer{
+            width: 100%;
+            height: 192px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+        }
+        #upper_footer_left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            max-width: 350px;
+        }
+        #upper_footer_ellora_pic{
+            width: 128px;
+            height: 128px;
+        }
+        #upper_footer_quote{
+            font-family: 'Satoshi', sans-serif;
+            font-size: 24px;
+            width: 260px;
+            color: white;
+        }
+        #upper_footer_right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 450px;
+            flex-wrap: wrap;
+        }
+        #upper_links{
+            font-family: 'Satoshi', sans-serif;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            color: white;
+        }
+        #upper_icons{
+            padding-top: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        .icons{
+            width: 50px;
+            height: 50px;
+        }
+        #lower_footer{
+            width: 100%;
+            height: 64px;
+            border-top: 1px solid rgba(253, 253, 253, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #lower_footer_content{
+            width: auto;
+            height: auto;
+            font-size: 16;
+            font-weight: 400;
+            font-family: 'Satoshi', sans-serif;
+            color:white;
+        }
+        #menu{
+            display: none;
+        }
+    }
     </style>
 </head>
 <body>
     {% load static %}
-    
+    <div class="wrapper">
     <header class="header">
-        <img id="bg_pic" src="{% static 'ellora_app/images/bg5.png' %}">
         <navbar id="navbar">
             <div id="nav">
                 <div id="ellora_white_bg">
-                    <img id="ellora_pic" src="{% static 'ellora_app/images/ellora_pic2.png' %}">
+                    <img id="ellora_pic" src="{% static 'static/ellora_app/images/ellora_pic2.png' %}">
                 </div>
-                
+                <img id="menu" src="{% static 'static/ellora_app/images/menu.png' %}">
                 <div id="hyper_collection">
                     <div class="nav_hyper">
-                        About
+                        <a class="nav_hyper_anchor" href="#end-of-header">About</a>
                     </div>
                     <div class="nav_hyper">
-                        Services
+                        <a class="nav_hyper_anchor" href="#end-of-work">Services</a>
                     </div>
                     <div class="nav_hyper">
-                        Testimonials
+                        <a class="nav_hyper_anchor" href="#end-of-service">Testimonials</a>
                     </div>
                     <div class="nav_hyper">
-                        FAQs
+                        <a class="nav_hyper_anchor" href="#submit_button">FAQs</a>
                     </div>
                 </div>
                 <div id="work">
-                    See Work
+                    <a class="nav_hyper_anchor" href="#end-of-about">See Work</a>
                 </div>
             </div>
         </navbar>
-        <img id="star_pic" src="{% static 'ellora_app/images/star.png' %}">
+        <img id="star_pic" src="{% static 'static/ellora_app/images/star.png' %}">
         <div id="main_content">
             <div id="left_side_main_content">
                 <div id="main_heading">Crafting Solutions That Work For <span id="you_span">You.</span></div>
                 <div id="sub_heading">We’re your one-stop agency for UX/UI design, website development, graphic design, and content creation.</div>
-                <div id="button_req">
-                    <div>Request Quote</div><img id="message_pic" src="{% static 'ellora_app/images/message.png' %}">
-                </div>
+                <a href="#end-of-testimonial" id="button_req">
+                    Request Quote<img id="message_pic" src="{% static 'static/ellora_app/images/message.png' %}">
+                </a>
             </div>
-            <img id="person_pic" src="{% static 'ellora_app/images/person.png' %}">
+            <img id="person_pic" src="{% static 'static/ellora_app/images/person2.png' %}">
         </div>
         <div id="circle_dot">
             <div id="circle"></div>
-            <img id="dot_pic" src="{% static 'ellora_app/images/dot_spots.png' %}">
+            <img id="dot_pic" src="{% static 'static/ellora_app/images/dot_spots.png'%}">
         </div>
-        <img id="star2_pic" src="{% static 'ellora_app/images/star.png' %}">
+        <img id="star2_pic" src="{% static 'static/ellora_app/images/star.png'%}">
     </header>
+
+    <div class="div" id="end-of-header"></div>
+    
     <main id="main">
         <div class="about_section">
             <div id="about_heading">
@@ -788,7 +2018,7 @@
                 <div class="about_info_content">
                     <div class="about_width">
                         <div class="about_info_content_header">
-                            <img class="about_info_content_image" src="{% static 'ellora_app/images/group.png' %}">
+                            <img class="about_info_content_image" src="{% static 'static/ellora_app/images/group.png'%}">
                             <div class="about_info_content_title">
                                 Who We Are
                             </div>
@@ -801,7 +2031,7 @@
                 <div class="about_info_content">
                     <div class="about_width">
                         <div class="about_info_content_header">
-                            <img class="about_info_content_image" src="{% static 'ellora_app/images/setting.png' %}">
+                            <img class="about_info_content_image" src="{% static 'static/ellora_app/images/setting.png'%}">
                             <div class="about_info_content_title">
                                 What We Do
                             </div>
@@ -814,7 +2044,7 @@
                 <div class="about_info_content">
                     <div class="about_width">
                         <div class="about_info_content_header">
-                            <img class="about_info_content_image" src="{% static 'ellora_app/images/trophy.png' %}">
+                            <img class="about_info_content_image" src="{% static 'static/ellora_app/images/trophy.png'%}">
                             <div class="about_info_content_title">
                                 Why Choose Us?
                             </div>
@@ -831,7 +2061,7 @@
                 <div class="about_info_content">
                     <div class="about_width">
                         <div class="about_info_content_header">
-                            <img class="about_info_content_image" src="{% static 'ellora_app/images/shield.png' %}">
+                            <img class="about_info_content_image" src="{% static 'static/ellora_app/images/shield.png'%}">
                             <div class="about_info_content_title">
                                 Our Promise
                             </div>
@@ -843,6 +2073,9 @@
                 </div>
             </div>
         </div>
+
+        <div class="div" id="end-of-about"></div>
+
         <div class="work_section">
             <div id="work_heading">
                 Work
@@ -850,7 +2083,7 @@
             <div id="work_info">
                 <div class="work_info_content">
                     <div class="work_width">
-                            <img class="work_info_content_image" src="{% static 'ellora_app/images/eshop.png' %}">
+                            <img class="work_info_content_image" src="{% static 'static/ellora_app/images/eshop.png'%}">
                             <div>
                                 E-Shop Redesign and UX Research
                             </div>
@@ -872,7 +2105,7 @@
                 </div>
                 <div class="work_info_content">
                     <div class="work_width">
-                        <img class="work_info_content_image" src="{% static 'ellora_app/images/startup.png' %}">
+                        <img class="work_info_content_image" src="{% static 'static/ellora_app/images/startup.png'%}">
                         <div>
                             Tech Startup Brand Identity Launch
                         </div>
@@ -894,7 +2127,7 @@
                 </div>
                 <div class="work_info_content">
                     <div class="work_width">
-                        <img class="work_info_content_image" src="{% static 'ellora_app/images/edtech.png' %}">
+                        <img class="work_info_content_image" src="{% static 'static/ellora_app/images/edtech.png'%}">
                         <div>
                             Website for an Ed-Tech Company
                         </div>
@@ -916,7 +2149,7 @@
                 </div>
                 <div class="work_info_content">
                     <div class="work_width">
-                        <img class="work_info_content_image" src="{% static 'ellora_app/images/social.png' %}">
+                        <img class="work_info_content_image" src="{% static 'static/ellora_app/images/social.png'%}">
                         <div>
                             Social Campaign Design for a NPO
                         </div>
@@ -939,6 +2172,8 @@
             </div>
         </div>
 
+        <div class="div" id="end-of-work"></div>
+
         <div class="service_section">
             <div id="service_heading">
                 Services
@@ -947,7 +2182,7 @@
                 <div class="service_info_content">
                     <div class="service_width">
                         <div class="service_info_content_image">
-                            <img id="pen" src="{% static 'ellora_app/images/pen.png' %}">
+                            <img id="pen" src="{% static 'static/ellora_app/images/pen.png'%}">
                         </div>
                         <div class="service_info_content_title">
                             Copywriting
@@ -957,7 +2192,7 @@
                 <div class="service_info_content">
                     <div class="service_width">
                         <div class="service_info_content_image">
-                            <img id="figma" src="{% static 'ellora_app/images/figma.png' %}">
+                            <img id="figma" src="{% static 'static/ellora_app/images/figma.png'%}">
                         </div>
                         <div class="service_info_content_title">
                             UI/UX Design
@@ -967,7 +2202,7 @@
                 <div class="service_info_content">
                     <div class="service_width">
                         <div class="service_info_content_image">
-                            <img id="film" src="{% static 'ellora_app/images/film.png' %}">
+                            <img id="film" src="{% static 'static/ellora_app/images/film.png'%}">
                         </div>
                         <div class="service_info_content_title">
                             Video Editing
@@ -977,7 +2212,7 @@
                 <div class="service_info_content">
                     <div class="service_width">
                         <div class="service_info_content_image">
-                            <img id="internet" src="{% static 'ellora_app/images/internet.png' %}">
+                            <img id="internet" src="{% static 'static/ellora_app/images/internet.png'%}">
                         </div>
                         <div class="service_info_content_title">
                             Website Development
@@ -987,51 +2222,57 @@
             </div>
         </div>
 
+        <div class="div" id="end-of-service"></div>
+
         <div class="testimonial_section">
             <div id="testimonial_heading">
                 Testimonials
             </div>
             <div id="testimonial_info">
-                <img id="arrow_left_pic" src="{% static 'ellora_app/images/arrow_left.png' %}">
+                <!-- <img id="arrow_left_pic" src="static/ellora_app/images/arrow_left.png"> -->
                 <div class="testimonial_info_content">
-                    <div class="testimonial_info_content_upper">
-                        <img id="pi_pic" src="{% static 'ellora_app/images/personal_image.png' %}">
-                        <div id="testimonial_info_content_upper_center">
-                            <div id="testimonial_name">
-                                Ravi Verma,
+                    <div id="testimonial_width">
+                        <div class="testimonial_info_content_upper">
+                            <img id="pi_pic" src="{% static 'static/ellora_app/images/personal_image.png'%}">
+                            <div id="testimonial_info_content_upper_center">
+                                <div id="testimonial_name">
+                                    Ravi Verma,
+                                </div>
+                                <div id="testimonial_position">
+                                    Owner, Spice Delight
+                                </div>
                             </div>
-                            <div id="testimonial_position">
-                                Owner, Spice Delight
+                            <img id="green_stars" src="{% static 'static/ellora_app/images/green_stars.png'%}">
+                        </div>
+                        <div class="testimonial_info_content_lower">
+                            <div id="testimonial_lower_info">
+                                The Ellora team brought our vision to life! Their creativity and attention to detail in UI/UX design exceeded all expectations. Highly recommend them for anyone looking to elevate their brand.
                             </div>
                         </div>
-                        <img id="green_stars" src="{% static 'ellora_app/images/green_stars.png' %}">
                     </div>
-                    <div class="testimonial_info_content_lower">
-                        <div id="testimonial_lower_info">
-                            The Ellora team brought our vision to life! Their creativity and attention to detail in UI/UX design exceeded all expectations. Highly recommend them for anyone looking to elevate their brand.
-                        </div>
-                    </div>
+                    
                 </div>
-                <img id="arrow_right_pic" src="{% static 'ellora_app/images/arrow_right.png' %}">
+                <!-- <img id="arrow_right_pic" src="static/ellora_app/images/arrow_right.png" > -->
             </div>
         </div>
 
+        <div class="div" id="end-of-testimonial"></div>
+
         <div class="contact_section">
             <div id="contact_heading">
-                Contact
+                Get Consultation
             </div>
             <div id="contact_info">
-                <form action="" method="post">
+                <form action="https://formspree.io/f/mlddqbqv" method="post">
                 <input id="input_name" type="text" name="name" placeholder="Name" required>
                 <input id="input_email" type="text" name="email" placeholder="Email" required>
                 <input id="company_name" type="text" name="company" placeholder="Company Name" required>
                 <select name="service" id="service" required>
-                    <option value="" disabled selected>-- Please Select --</option>
-                    <option value="service_1">United States</option>
-                    <option value="service_2">Canada</option>
-                    <option value="service_3">United Kingdom</option>
-                    <option value="service_4">Australia</option>
-                    <option value="service_5">India</option>
+                    <option value="" disabled selected>Services</option>
+                    <option value="service_1">Copywriting</option>
+                    <option value="service_2">UI/UX Designing</option>
+                    <option value="service_3">Video Editing</option>
+                    <option value="service_4">Website Development</option>
                   </select>
                 <input id="project" type="text" name="project" placeholder="Describe Project" required>
                 <input id="submit_button" type="submit" name="submit">
@@ -1039,42 +2280,72 @@
             </div>
         </div>
 
+        <div class="div" id="end-of-contact"></div>
         <div class="question_section">
             <div id="question_heading">
-                Frequently Asked Question
+                Frequently Asked Questions
             </div>
             <div id="question_info">
-                <div class="questions">
-                    <div class="ques_content">
-                        How do I get started with Ellora Agency?
+                <div class="faq_item">
+                    <div class="questions" onclick="toggleAnswer(this)">
+                        <div class="ques_content">
+                            How do I get started with Ellora Agency?
+                        </div>
+                        <img class="arrow_down_pic" src="{% static 'static/ellora_app/images/arrow_down.png'%}" alt="Arrow Down">
                     </div>
-                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
+                    <div class="answer">
+                        Getting started with us is simple! Reach out through our contact form or email, and tell us about your project. We'll schedule a free consultation to understand your needs, brainstorm ideas, and guide you through our process. From there, we’ll provide a tailored proposal to kick off your project seamlessly.
+                    </div>
                 </div>
-                <div class="questions">
-                    <div class="ques_content">
-                        Can you accommodate tight deadlines?
+    
+                <div class="faq_item">
+                    <div class="questions" onclick="toggleAnswer(this)">
+                        <div class="ques_content">
+                            Can you accommodate tight deadlines?
+                        </div>
+                        <img class="arrow_down_pic" src="{% static 'static/ellora_app/images/arrow_down.png'%}" alt="Arrow Down">
                     </div>
-                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
+                    <div class="answer">
+                        Yes, we understand that some projects require quick turnarounds. While we strive to maintain the highest quality, we’ll assess your deadline during the consultation and let you know if it’s achievable. Our team is flexible and committed to delivering exceptional results, even on tight schedules.                    </div>
                 </div>
-                <div class="questions">
-                    <div class="ques_content">
-                        What payment methods do you accept?
+    
+                <div class="faq_item">
+                    <div class="questions" onclick="toggleAnswer(this)">
+                        <div class="ques_content">
+                            What payment methods do you accept?
+                        </div>
+                        <img class="arrow_down_pic" src="{% static 'static/ellora_app/images/arrow_down.png'%}" alt="Arrow Down">
                     </div>
-                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
+                    <div class="answer">
+                        We accept a variety of payment methods for your convenience, including credit and debit cards, UPI, bank transfers, and digital wallets like Google Pay or Paytm. International clients can also pay via PayPal or wire transfers. If you have specific requirements, feel free to discuss them with us.
+                    </div>
                 </div>
-                <div class="questions">
-                    <div class="ques_content">
-                        What is your pricing structure?
+    
+                <div class="faq_item">
+                    <div class="questions" onclick="toggleAnswer(this)">
+                        <div class="ques_content">
+                            What is your pricing structure?
+                        </div>
+                        <img class="arrow_down_pic" src="{% static 'static/ellora_app/images/arrow_down.png'%}" alt="Arrow Down">
                     </div>
-                    <img class="arrow_down_pic" src="{% static 'ellora_app/images/arrow_down.png' %}">
+                    <div class="answer">
+                        Our pricing is project-based and depends on the scope and complexity of your needs. After an initial consultation, we’ll provide a transparent, detailed quote that outlines all costs. Whether you need a one-time service or ongoing support, we offer competitive rates to ensure value for money.                    </div>
                 </div>
             </div>
         </div>
+             
     </main>
+    <!-- <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-box">
+            <h2>Question Details</h2>
+            <p id="popup-content"></p>
+            <button class="close-btn" id="close-btn">Close</button>
+        </div>
+    </div> -->
     <footer id="footer">
         <div id="upper_footer">
             <div id="upper_footer_left">
-                <img id="upper_footer_ellora_pic" src="{% static 'ellora_app/images/ellora_pic3.png' %}">
+                <img id="upper_footer_ellora_pic" src="{% static 'static/ellora_app/images/ellora_pic3.png'%}">
                 <div id="upper_footer_quote">The Future of Digital, Built Today.</div>
             </div>
             <div id="upper_footer_right">
@@ -1085,15 +2356,16 @@
                     <div class="upper_links_content">
                         Privacy Policy
                     </div>
-                    <div class="upper_links_content">
-                        ellora.work@gmail.com
-                    </div>
+                 <div class="upper_links_content">
+                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTNqwngKJdRbjnRNZbVrfvHfjWDljkbWdHqFsGcXPgvxWJRPTrtZvGJLNfcJVrxnzSpnRL" 
+                        style="text-decoration: none; color: inherit; cursor: pointer;">ellora.work@gmail.com</a>
+                </div>
                 </div>
                 <div id="upper_icons">
-                    <img class="icons" src="{% static 'ellora_app/images/instagram.png' %}">
-                    <img class="icons" src="{% static 'ellora_app/images/facebook.png' %}">
-                    <img class="icons"  src="{% static 'ellora_app/images/twitter.png' %}">
-                    <img class="icons"  src="{% static 'ellora_app/images/linkedin.png' %}">
+                    <a href=""><img class="icons" src="{% static 'static/ellora_app/images/instagram.png'%}"></a>
+                    <a href=""><img class="icons" src="{% static 'static/ellora_app/images/facebook.png'%}"></a>
+                    <a href=""><img class="icons"  src="{% static 'static/ellora_app/images/twitter.png'%}"></a>
+                    <a href=""><img class="icons"  src="{% static 'static/ellora_app/images/linkedin.png'%}"></a>
                 </div>
             </div>
         </div>
@@ -1104,5 +2376,89 @@
             </div>
         </div>
     </footer>
+    </div>
+
+    <script>
+        // const arrowRightPic = document.getElementById('arrow_right_pic');
+        // const arrowLeftPic = document.getElementById('arrow_left_pic');
+        // const testimonialInfoContents = document.querySelectorAll('.testimonial_info_content');
+        
+        // let originalContent = '';
+
+        // window.addEventListener('load', function() {
+        //     testimonialInfoContents.forEach(function(content) {
+        //         originalContent = content.innerHTML;
+        //     });
+        // });
+
+        // arrowRightPic.addEventListener('click', function() {
+        //     testimonialInfoContents.forEach(function(content) {
+        //         content.innerHTML = '';
+        //     });
+        // });
+
+        // arrowLeftPic.addEventListener('click', function() {
+        //     testimonialInfoContents.forEach(function(content) {
+        //         content.innerHTML = originalContent;
+        //     });
+        // });
+        // const questions = document.querySelectorAll('.questions');
+        // const popupOverlay = document.getElementById('popup-overlay');
+        // const popupContent = document.getElementById('popup-content');
+        // const closeBtn = document.getElementById('close-btn');
+
+        
+        // questions.forEach(function(question) {
+        //     question.addEventListener('click', function() {
+        //         const questionText = question.querySelector('.ques_content').innerText;
+        //         popupContent.innerText = questionText;  
+        //         popupOverlay.style.display = 'flex'; 
+        //     });
+        // });
+
+        
+        // closeBtn.addEventListener('click', function() {
+        //     popupOverlay.style.display = 'none';
+        // });
+
+        
+        // popupOverlay.addEventListener('click', function(event) {
+        //     if (event.target === popupOverlay) {
+        //         popupOverlay.style.display = 'none'; 
+        //     }
+        // });
+
+
+        const image = document.getElementById('message_pic');
+        const container = document.getElementById('button_req');
+
+        container.addEventListener('mouseenter', () => {
+            image.src = "{% static 'static/ellora_app/images/message_pic.png'%}";
+        });
+
+        container.addEventListener('mouseleave', () => {
+            image.src = "{% static 'static/ellora_app/images/message.png'%}";
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const questions = document.querySelectorAll('.questions');
+
+        questions.forEach((questionElement) => {
+            questionElement.addEventListener('click', () => {
+                const faqItem = questionElement.parentElement;
+
+                document.querySelectorAll('.faq_item').forEach((item) => {
+                    if (item !== faqItem) {
+                        item.classList.remove('expanded');
+                        item.querySelector('.questions').classList.remove('active');
+                    }
+                });
+
+                faqItem.classList.toggle('expanded');
+                questionElement.classList.toggle('active');
+            });
+        });
+    });
+    </script>
 </body>
 </html>
